@@ -1,0 +1,17 @@
+
+{
+  "name": "lokiz-engine",
+  "version": "0.2.0",
+  "description": "LOKIZ collaborative game engine",
+  "main": "desktop.js",
+  "scripts": {
+    "start": "node server.js",
+    "desktop": "electron ."
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0"
+  }
+}
