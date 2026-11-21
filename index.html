@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lokiz Engine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>LOKIZ ENGINE</h2>
+    <div>
+      <button id="playBtn">▶ PLAY</button>
+      <button id="stopBtn">■ STOP</button>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <h3>HIERARCHY</h3>
+      <div id="hierarchy"></div>
+      <button id="addCube">+ Cube</button>
+      <button id="addSphere">+ Sphere</button>
+      <button id="addPlane">+ Plane</button>
+    </aside>
+
+    <section id="viewport">
+      <canvas id="gameCanvas"></canvas>
+    </section>
+
+    <aside>
+      <h3>INSPECTOR</h3>
+      <div id="inspector">Select an object</div>
+    </aside>
+  </main>
+
+  <script src="engine.js"></script>
+</body>
+</html>
