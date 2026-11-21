@@ -1,39 +1,119 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lokiz Engine</title>
+  <title>Lokiz Engine 0.2</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h2>LOKIZ ENGINE</h2>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">L</span>
     <div>
-      <button id="playBtn">▶ PLAY</button>
-      <button id="stopBtn">■ STOP</button>
+      <b>LOKIZ</b>
+      <small>ENGINE 0.2.0</small>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <aside>
-      <h3>HIERARCHY</h3>
-      <div id="hierarchy"></div>
-      <button id="addCube">+ Cube</button>
-      <button id="addSphere">+ Sphere</button>
-      <button id="addPlane">+ Plane</button>
-    </aside>
+  <div class="toolbar">
+    <button id="addCube">＋ Cube</button>
+    <button id="addSphere">＋ Sphere</button>
+    <button id="saveBtn">Save</button>
+    <button id="exportBtn">Export JSON</button>
+    <button id="playBtn" class="primary">▶ Play</button>
+  </div>
 
-    <section id="viewport">
-      <canvas id="gameCanvas"></canvas>
-    </section>
+  <div class="connection">
+    <i id="connectionDot"></i>
+    <span id="connectionText">OFFLINE</span>
+  </div>
+</header>
 
-    <aside>
-      <h3>INSPECTOR</h3>
-      <div id="inspector">Select an object</div>
-    </aside>
-  </main>
+<main class="layout">
 
-  <script src="engine.js"></script>
+  <aside class="panel left">
+    <div class="panel-title">SCENE HIERARCHY</div>
+    <div id="hierarchy" class="hierarchy"></div>
+
+    <div class="panel-title room-title">COLLABORATION</div>
+
+    <label>
+      Display name
+      <input id="userName" maxlength="24" value="Creator">
+    </label>
+
+    <label>
+      Room code
+      <input id="roomCode" maxlength="32" value="LOKIZ-ROOM">
+    </label>
+
+    <label>
+      Join as
+      <select id="userRole">
+        <option value="editor">Editor</option>
+        <option value="viewer">Viewer</option>
+      </select>
+    </label>
+
+    <button id="joinBtn" class="wide">
+      Connect to room
+    </button>
+
+    <div class="subhead">
+      TEAM MEMBERS <span id="memberCount">0</span>
+    </div>
+
+    <div id="members" class="members">
+      <span class="muted">Not connected</span>
+    </div>
+  </aside>
+
+  <section class="center">
+    <div class="viewport-head">
+      <span>SCENE VIEW</span>
+      <span id="sceneStatus">LOCAL SCENE</span>
+    </div>
+
+    <canvas id="view"></canvas>
+
+    <div class="view-help">
+      Drag to rotate · Wheel to zoom · Select objects in hierarchy
+    </div>
+
+    <div class="bottom-bar">
+      <span id="objectCount">1 OBJECT</span>
+      <span>WEBGL 2 · CUSTOM RENDERER</span>
+    </div>
+  </section>
+
+  <aside class="panel right">
+    <div class="panel-title">INSPECTOR</div>
+
+    <div id="inspector" class="inspector">
+      <p class="muted">Select an object to edit its properties.</p>
+    </div>
+
+    <div class="panel-title chat-title">TEAM CHAT</div>
+
+    <div id="chatLog" class="chat-log">
+      <div class="muted">Join a room to chat with your team.</div>
+    </div>
+
+    <form id="chatForm" class="chat-form">
+      <input id="chatInput" maxlength="500" placeholder="Message your team…">
+      <button aria-label="Send">➤</button>
+    </form>
+
+    <div class="chat-foot">
+      Messages are shared with everyone in this room.
+    </div>
+  </aside>
+
+</main>
+
+<script src="app.js"></script>
 </body>
 </html>
